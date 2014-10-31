@@ -4,12 +4,16 @@ module RecordManager
   class Record
     attr_reader :first_name, :last_name, :gender, :favorite_color, :dob
 
-    def initialize(attributes = {})
-      @first_name = attributes[:first_name]
-      @last_name = attributes[:last_name]
-      @gender = attributes[:gender]
-      @favorite_color = attributes[:favorite_color]
-      @dob = attributes[:dob]
+    def initialize(last_name, first_name, gender, favorite_color, dob)
+      @last_name = last_name
+      @first_name = first_name
+      @gender = gender
+      @favorite_color = favorite_color
+      @dob = Date.strptime(dob, ' %m-%d-%Y')
+    end
+
+    def to_output
+      "#{last_name}, #{first_name}, #{gender}, #{favorite_color}, #{dob.strftime('%-m/%-d/%Y')}"
     end
   end
 end
