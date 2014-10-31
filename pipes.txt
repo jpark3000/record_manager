@@ -1,0 +1,5 @@
+Jarmusch | Jim | Male | Black | 01-22-1953
+Campion | Jane | Female | Red | 04-30-1954
+Anderson | Paul | Male | Green | 06-26-1970
+Reichardt | Kelly | Female | Blue | 10-03-1964
+Herzog | Werner | Male | Green | 09-05-1942
