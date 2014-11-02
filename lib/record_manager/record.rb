@@ -12,7 +12,7 @@ module RecordManager
       @dob = Date.strptime(dob, ' %m-%d-%Y')
     end
 
-    def to_output
+    def format
       "#{last_name}, #{first_name}, #{gender}, #{favorite_color}, #{dob.strftime('%-m/%-d/%Y')}"
     end
   end
