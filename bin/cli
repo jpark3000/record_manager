@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+
+lib_path = File.expand_path('../../lib', __FILE__)
+($:.unshift lib_path) unless ($:.include? lib_path)
+
+require 'record_manager'
+require 'optparse'
+
+module RecordManager
+  class CLI
+    attr_reader :files, :options, :records, :parser
+
+    def initialize(parser = RecordManager::Parser.new, records = RecordManager::Records.new)
+      @parser = parser
+      @records = records
+      @options = {}
+      parse_options
+      @files = ARGV
+      load
+      sort
+    end
+
+    def parse_options
+      OptionParser.new do |opts|
+        opts.on("-s [TYPE]") { |type| options[:sort_by] = type }
+      end.parse!
+    end
+
+    def load
+      files.each do |file|
+        records.add_records(parser.load_records(file))
+      end
+    end
+
+    def sort
+      case options[:sort_by]
+      when "gender"
+        to_output(records.sort_gender)
+      when "last_name"
+        to_output(records.sort_last_name)
+      when "birthdate"
+        to_output(records.sort_dob)
+      else
+        to_output(records.sort_last_name)
+      end
+    end
+
+    def to_output(records)
+      records.each { |record| puts record.format }
+    end
+  end
+end
+
+cli = RecordManager::CLI.new
