@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require 'record_manager/record'
+require 'spec_helper'
 
 describe RecordManager::Record do
   let(:record) { RecordManager::Record.new('Park', 'Justin', 'Male', 'Blue', '12-11-1987') } 
@@ -10,6 +10,6 @@ describe RecordManager::Record do
   end
 
   it 'outputs a record correctly' do
-    expect(record.to_output).to eql 'Park, Justin, Male, Blue, 12/11/1987'
+    expect(record.format).to eql 'Park, Justin, Male, Blue, 12/11/1987'
   end
 end
