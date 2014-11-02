@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require 'record_manager/parser'
+require 'spec_helper'
 
 describe RecordManager::Parser do
   let(:parser) { RecordManager::Parser.new }
@@ -23,6 +23,6 @@ describe RecordManager::Parser do
 
   it 'parses a record correctly' do
     record = parser.load_records('pipes.txt').first
-    expect(record.to_output).to eql "Jarmusch, Jim, Male, Black, 1/22/1953"
+    expect(record.format).to eql "Jarmusch, Jim, Male, Black, 1/22/1953"
   end
 end
