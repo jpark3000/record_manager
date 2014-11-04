@@ -12,7 +12,7 @@ A simple CLI and API for parsing text files containing records in the following 
 `LastName FirstName Gender FavoriteColor DateOfBirth`
 
 ## Getting Started
-___
+================
 
 1. Clone Repo
 	
@@ -31,7 +31,7 @@ ___
 	`chmod -x bin/cli`
 
 ## CLI Usage
-___
+================
 
 #### Example
 
@@ -60,7 +60,7 @@ Adding the above flag and option will list the records sorted by `<sort_option>`
 Providing the `-s` flag and no `<sort_option>` will also default to sorting by last name.
 
 ## API 
-___
+================
 
 `rackup config.ru` to run locally
 
