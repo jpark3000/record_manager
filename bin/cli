@@ -41,7 +41,7 @@ module RecordManager
       when "last_name"
         to_output(records.sort_last_name)
       when "birthdate"
-        to_output(records.sort_dob)
+        to_output(records.sort_birthdate)
       else
         to_output(records.sort_last_name)
       end
