@@ -20,6 +20,8 @@ module RecordManager
       sort
     end
 
+    private
+
     def parse_options
       OptionParser.new do |opts|
         opts.on("-s [TYPE]") { |type| options[:sort_by] = type }
@@ -28,7 +30,7 @@ module RecordManager
 
     def load
       files.each do |file|
-        records.add_records(parser.load_records(file))
+        records.add_records(parser.load_file(file))
       end
     end
 
@@ -46,7 +48,7 @@ module RecordManager
     end
 
     def to_output(records)
-      records.each { |record| puts record.format }
+      records.each { |record| puts record.to_output }
     end
   end
 end
