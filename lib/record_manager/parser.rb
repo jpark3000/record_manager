@@ -5,24 +5,33 @@ require 'csv'
 module RecordManager
   class Parser
 
-    def load_records(file)
+    def load_file(file)
       records = []
-      CSV.foreach(file, col_sep: detect_delimiter(file)) do |record|
+      first_line = extract_first_line(file)
+      CSV.foreach(file, col_sep: detect_delimiter(first_line)) do |record|
         records << parse_record(record)
       end
       records
     end
 
-    private
-
-    def parse_record(row)
-      strip_row!(row)
-      Record.new(*row)
+    def load_data_line(line)
+      line = CSV.parse(line, col_sep: detect_delimiter(line)).flatten
+      parse_record(line)
     end
 
-    def detect_delimiter(file)
-      first_line = File.open(file).first
-      case first_line
+    private
+
+    def extract_first_line(file)
+      File.open(file).first
+    end
+
+    def parse_record(attributes)
+      strip_attributes!(attributes)
+      Record.new(*attributes)
+    end
+
+    def detect_delimiter(line)
+      case line
       when /\|/
         '|'
       when /,/
@@ -32,8 +41,8 @@ module RecordManager
       end
     end
 
-    def strip_row!(row)
-      row.each(&:strip!)
+    def strip_attributes!(attributes)
+      attributes.each(&:strip!)
     end
   end
 end

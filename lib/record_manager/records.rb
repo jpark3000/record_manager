@@ -17,8 +17,8 @@ module RecordManager
       collection.sort_by { |record| [record.gender, record.last_name] }
     end
 
-    def sort_dob
-      collection.sort_by { |record| record.dob }
+    def sort_birthdate
+      collection.sort_by { |record| record.birthdate }
     end
 
     def sort_last_name
