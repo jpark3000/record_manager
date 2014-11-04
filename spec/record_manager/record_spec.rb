@@ -10,6 +10,6 @@ describe RecordManager::Record do
   end
 
   it 'outputs a record correctly' do
-    expect(record.format).to eql 'Park, Justin, Male, Blue, 12/11/1987'
+    expect(record.to_output).to eql 'Park, Justin, Male, Blue, 12/11/1987'
   end
 end

@@ -40,7 +40,7 @@ describe RecordManager do
           '1960-09-19', '1989-07-28'
         ].map { |date| Date.parse(date) }
 
-        expect(records.sort_dob.map(&:dob)).to eql dates
+        expect(records.sort_birthdate.map(&:birthdate)).to eql dates
       end
 
       it 'sorts records by last name ascending' do

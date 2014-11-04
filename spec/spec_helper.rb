@@ -1,7 +1,5 @@
 require 'record_manager'
 
-
-
 def test_records
   [ 
     RecordManager::Record.new(*%W(Simpson Homer Male White 05-12-1955)),
