@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'record_manager'
 
 def test_records
