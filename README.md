@@ -27,7 +27,7 @@ A simple CLI and API for parsing text files containing records in the following 
 
 4. Make CLI executable
 	
-	`chmod -x bin/cli`
+	`chmod +x bin/cli`
 
 ## CLI Usage
 
